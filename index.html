@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="author" content="Marko Budimir" />
+        <meta name="description" content="Scaledrone ChatApp" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <title>Scaledrone ChatApp</title>
+    </head>
+    <body>
+        <h1>Scaledrone ChatApp</h1>
+        <div class="chatForm">
+            <div class="messages"></div>
+        </div>
+        <div class="messageSend">
+            <form class="messageForm" onsubmit="return false;">
+                <input
+                    class="messageFormInput"
+                    placeholder="Upiši poruku..."
+                    type="text" />
+                <input
+                    class="messageFormButton"
+                    value="Pošalji"
+                    type="submit" />
+            </form>
+        </div>
+        <script
+            src="https://cdn.scaledrone.com/scaledrone.min.js"
+            type="text/javascript"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>
