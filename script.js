@@ -6,7 +6,9 @@ const user = {
 const drone = new ScaleDrone(CLIENT_ID, {
     data: user,
 });
+
 let members = [];
+
 drone.on("open", (error) => {
     if (error) {
         alert(error);
@@ -22,6 +24,7 @@ drone.on("open", (error) => {
         }
         alert("Successfully joined room");
     });
+
     room.on("members", (m) => {
         members = m;
     });
@@ -38,6 +41,7 @@ drone.on("open", (error) => {
         } 
     });
 });
+
 function getRandomName() {
     const randomName = [
         "Tokyo:",
@@ -51,13 +55,17 @@ function getRandomName() {
     ];
     return randomName[Math.floor(Math.random() * randomName.length)];
 }
+
 function getRandomColor() {
     return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
 }
+
 const messages = document.querySelector(".messages");
 const messageFormInput = document.querySelector(".messageFormInput");
 const messageForm = document.querySelector(".messageForm");
+
 messageForm.addEventListener("submit", sendMessage);
+
 function sendMessage() {
     const value = messageFormInput.value.trim();
     if (value === "") {
@@ -70,6 +78,7 @@ function sendMessage() {
         message: value,
     });
 }
+
 function createMemberElement(member) {
     const { name, color } = member.clientData;
     const el = document.createElement("div");
@@ -79,6 +88,7 @@ function createMemberElement(member) {
 
     return el;
 }
+
 function createMessageElement(text, member) {
     const { name } = member.clientData;
     const el = document.createElement("div");
@@ -88,6 +98,7 @@ function createMessageElement(text, member) {
 
     return el;
 }
+
 function addMessageToList(text, member) {
     const el = messages;
     const wasTop = el.scrollTop === el.scrollHeight - el.clientHeight;
